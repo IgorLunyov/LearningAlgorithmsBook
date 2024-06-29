@@ -12,19 +12,22 @@ def is_palindrome2(w):
   return True
 
 def is_palindrome3(w):
-  for i in range(len(w)//2 - 1):
-    if w[i] != w[-1 - i]:
+  median = len(w) // 2 - 1
+  first_half = w[:median + 1]
+  second_half = w[:median + 1:-1]
+  for one, two in zip(first_half, second_half):
+    if one != two:
       return False
   return True
 
-print(is_palindrome3('hello'))
+print(is_palindrome3('kazak'))
 
 if __name__ == '__main__':
   name = 'kaak'
   funcs = (is_palindrome1, is_palindrome2, is_palindrome3)
   times = []
   for func in funcs:
-      times_local = timeit.Timer(partial(func, name)).repeat(100, 1000)
+      times_local = timeit.Timer(partial(func, name)).repeat(1000, 1000)
       times.append(min(times_local)/1000)
   for func, time in zip(funcs, times):
     print(f'Execution time for {func.__name__} is {time} seconds')
@@ -50,6 +53,16 @@ def is_palindrome3(w):
   #3.610550002122181e-07 seconds
   for i in range(len(w)//2 - 1):
     if w[i] != w[-1 - i]:
+      return False
+  return True
+  
+def is_palindrome3(w):
+  #7.570109999996966e-07 seconds
+  median = len(w) // 2 - 1
+  first_half = w[:median + 1]
+  second_half = w[:median + 1:-1]
+  for one, two in zip(first_half, second_half):
+    if one != two:
       return False
   return True
 '''
