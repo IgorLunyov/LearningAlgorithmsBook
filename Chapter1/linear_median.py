@@ -38,3 +38,5 @@ def linear_median(A):
 A = [3, 3, 3, 3, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
 print(linear_median(A))
 print(len(A))
+
+print('Hello')
