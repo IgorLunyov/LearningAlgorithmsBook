@@ -1,6 +1,10 @@
 import timeit
 from functools import partial
 
+'''
+In this task I need to create a new function is_palindrome3 which would be faster than is_palindrome1 and is_palindrome2
+'''
+
 def is_palindrome1(w):
   return w[::-1] == w
 
@@ -13,12 +17,7 @@ def is_palindrome2(w):
 
 def is_palindrome3(w):
   median = len(w) // 2 - 1
-  first_half = w[:median + 1]
-  second_half = w[:median + 1:-1]
-  for one, two in zip(first_half, second_half):
-    if one != two:
-      return False
-  return True
+  return w[:median + 1] == w[:median + 1:-1]
 
 print(is_palindrome3('kazak'))
 
