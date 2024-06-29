@@ -28,3 +28,28 @@ if __name__ == '__main__':
       times.append(min(times_local)/1000)
   for func, time in zip(funcs, times):
     print(f'Execution time for {func.__name__} is {time} seconds')
+
+'''
+def is_palindrome3(w):
+  #5.185619997973845e-07 seconds
+  l, r = 0, len(w) - 1
+  median = len(w) // 2 - 1
+  while l <= median:
+    if w[l] != w[r]:
+      return False
+    l += 1
+    r -= 1
+  return True
+
+def is_palindrome3(w):
+  #3.800680001404544e-07 seconds
+  median = len(w) // 2 - 1
+  return w[:median + 1] == w[:median + 1:-1]
+
+def is_palindrome3(w):
+  #3.610550002122181e-07 seconds
+  for i in range(len(w)//2 - 1):
+    if w[i] != w[-1 - i]:
+      return False
+  return True
+'''
